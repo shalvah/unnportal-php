@@ -1,0 +1,18 @@
+{
+    "name": "shalvah/unnportal-api",
+    "description": "Authenticate and get details about your users as UNN students",
+    "license": "MIT",
+    "keywords": ["UNN"],
+    "authors": [
+        {
+            "name": "Shalvah Adebayo",
+            "email": "shalvah.adebayo@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {},
+    "autoload": {
+        "psr-4": {
+            "UnnPortal\\": "api"
+        }
+    }
