@@ -39,6 +39,9 @@ class UnnStudent
 	public function logout()
 	{
 		curlLogout();
+		$this->username="";
+		$this->password="";
+		$this->details=null;
 	}
 	
 	public function surname()
