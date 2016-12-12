@@ -69,7 +69,7 @@ function getStudentDetails($profile)
 	if($sex) {
 	    $sexValue=domExtractSelectedValue($sex->getElementsByTagName('option'));
 	} else {
-            throw new UnnPortalException("Invalid username or password");
+            throw new \UnnPortal\UnnPortalException("Invalid username or password");
 	}
 	
 	$dept= $dom->getElementById("ctl00_ContentPlaceHolder1_ddlDepartment");
