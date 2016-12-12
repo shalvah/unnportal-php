@@ -20,6 +20,8 @@ $password = "xxxxxx";
 
 $student = new UnnStudent($username, $password);
 $student->login();
+echo $student->surname()." ".$student->firstName()." is in ".$student->level);
+$student->logout();
 ```
 
 If the login fails, an instance of `UnnPortal\UnnPortalException` will be thrown.
