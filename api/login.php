@@ -116,3 +116,27 @@ function domExtractSelectedValue($nodeList)
 	    }
     }
 }
+
+
+function curlLogout()
+{
+	$ch = curl_init();
+
+	$cookieFile="cookie.txt";
+	$userAgent="Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36";
+
+	$logoutUrl = "http://unnportal.unn.edu.ng/logout_processor.htm";
+
+	$f = fopen("log.txt", "w");
+
+	curl_setopt($ch, CURLOPT_URL, $logoutUrl);
+	curl_setopt($ch, CURLOPT_COOKIEJAR, $cookieFile);
+	curl_setopt($ch, CURLOPT_COOKIEFILE, $cookieFile);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_USERAGENT, $userAgent);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+	curl_setopt($ch, CURLOPT_AUTOREFERER, true);
+
+	curl_exec($ch);
+	curl_close($ch);
+}
