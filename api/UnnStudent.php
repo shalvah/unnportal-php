@@ -2,6 +2,8 @@
 
 namespace UnnPortal;
 
+require_once 'unn-api.php';
+
 class UnnStudent
 {
 	/**
@@ -18,11 +20,11 @@ class UnnStudent
 
     /**
 	 * [$details The student's profile details, gotten from UNN portal]
-	 * @var [string]
+	 * @var [array]
 	 */
-	protected $details;
+	public $details;
 
-	public __construct($username, $password)
+	public function __construct($username, $password)
 	{
 		$this->username=$username;
 		$this->password=$password;
@@ -30,41 +32,78 @@ class UnnStudent
 
 	public function login()
 	{
-        $this->details=[];
+		$profile=curlLogin($this->username, $this->password);
+        $this->details=getStudentDetails($profile);
 	}
     
-    public function name()
+    public function surname()
 	{
-		return $details['name'];
+		return $this->details['surname'];
+	}
+
+	public function middleName()
+	{
+		return $this->details['middle_name'];
+	}
+
+    public function firstName()
+	{
+		return $this->details['first_name'];
+	}
+
+	public function sex()
+	{
+		return $this->details['sex'];
 	}
 
 	public function email()
 	{
-		return $details['email'];
+		return $this->details['email'];
 	}
 
     public function phone()
 	{
-		return $details['phone'];
+		return $this->details['mobile'];
+	}
+
+	public function mobile()
+	{
+		return $this->details['mobile'];
 	}
 
     public function regNo()
 	{
-		return $details['reg_no'];
+		return $this->details['matric_no'];
+	}
+
+	public function matricNo()
+	{
+		return $this->details['matric_no'];
+	}
+
+	public function entryYear()
+	{
+		return $this->details['entry_year'];
+	}
+
+	public function gradYear()
+	{
+		return $this->details['grad_year'];
+	}
+
+	public function jambNo()
+	{
+		return $this->details['jamb_no'];
 	}
 
 	public function level()
 	{
-		return $details['level'];
+		return $this->details['level'];
 	}
 
     public function department()
 	{
-		return $details['department'];
+		return $this->details['department'];
 	}
 
-	public function faculty()
-	{
-		return $details['faculty'];
-	}
 }
