@@ -51,15 +51,16 @@ function curlLogin($username, $password)
 	curl_setopt($ch, CURLOPT_COOKIEFILE, $cookieFile); 
 	curl_setopt($ch, CURLOPT_COOKIEJAR, $cookieFile);     
 
-	return curl_exec($ch);
+	$result = curl_exec($ch);
 	curl_close($ch);
+	return $result;
 }
 
 function getStudentDetails($profile)
 {
 	$data=[];
 
-	$dom = new domDocument;
+	$dom = new \domDocument;
 	$dom->loadHTML($profile);
 	$dom->preserveWhiteSpace=false;
 
