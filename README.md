@@ -25,7 +25,8 @@ $student->login();
 If the login fails, an instance of `UnnPortal\UnnPortalException` will be thrown.
 
 # Use Cases
-1. You're building an application which you want to be available only to UNN students.
+*. You're building an application which you want to be available only to UNN students.
+
 ```
 try{
     $student->login();
@@ -35,7 +36,8 @@ try{
 ```
 You could even add email verification to it.
 
-2. You're building an application which you want to be available only to **certain** UNN students eg males in Political Science:
+*. You're building an application which you want to be available only to **certain** UNN students eg males in Political Science:
+
 ```
 if($student->sex() == "Male" && $student->department() == "POLITICAL SCIENCE") {
     //allow them through
@@ -61,4 +63,4 @@ $student->level); //returns a string such as "200 LEVEL" in CAPS
 # Disclaimer
 I, Shalvah Adebayo, am in no way liable for how this work is used. 
 You are required to abide by the terms of the included MIT license.
-In addition, you are to properly educate your users on which of their data you can access and what you will use it for. Please STORE NO LOGIN DETAILS>
+In addition, you are to properly educate your users on which of their data you can access and what you will use it for. Please STORE NO LOGIN DETAILS.
