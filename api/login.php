@@ -65,8 +65,12 @@ function getStudentDetails($profile)
 
 
 	$sex= $dom->getElementById("ctl00_ContentPlaceHolder1_ddlSex");
-	$sexValue=domExtractSelectedValue($sex->getElementsByTagName('option'));
-
+	if($sex) {
+	    $sexValue=domExtractSelectedValue($sex->getElementsByTagName('option'));
+	} else {
+            throw new UnnPortalException("Invalid username or password");
+	}
+	
 	$dept= $dom->getElementById("ctl00_ContentPlaceHolder1_ddlDepartment");
 	$deptValue=domExtractSelectedValue($dept->getElementsByTagName('option'));
 
@@ -89,6 +93,7 @@ function getStudentDetails($profile)
 	$data['first_name']=htmlExtractValue($profile, "<input name=\"ctl00\$ContentPlaceHolder1\$txtFirstname\" type=\"text\"");
 	$data['middle_name']=htmlExtractValue($profile, "<input name=\"ctl00\$ContentPlaceHolder1\$txtMiddlename\" type=\"text\"");
 	$data['mobile'] = htmlExtractValue($profile, "<input name=\"ctl00\$ContentPlaceHolder1\$wmeMobileno\" type=\"text\"");
+	$data['email'] = htmlExtractValue($profile, "<input name=\"ctl00\$ContentPlaceHolder1\$txtEmail\" type=\"text\"");
 	$data['matric_no']=htmlExtractValue($profile, "<input name=\"ctl00\$ContentPlaceHolder1\$txtMatricNo\" type=\"text\"");
 	$data['jamb_no']=htmlExtractValue($profile, "<input name=\"ctl00\$ContentPlaceHolder1\$txtJAMBNo\" type=\"text\"");
 
