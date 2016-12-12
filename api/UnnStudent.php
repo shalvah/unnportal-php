@@ -12,13 +12,13 @@ class UnnStudent
 	 */
 	protected $username;
 
-    /**
+       /**
 	 * [$password The student's UNN portal password]
 	 * @var [string]
 	 */
 	protected $password;
 
-    /**
+       /**
 	 * [$details The student's profile details, gotten from UNN portal]
 	 * @var [array]
 	 */
@@ -36,7 +36,12 @@ class UnnStudent
         $this->details=getStudentDetails($profile);
 	}
     
-    public function surname()
+	public function logout()
+	{
+		curlLogout();
+	}
+	
+	public function surname()
 	{
 		return $this->details['surname'];
 	}
