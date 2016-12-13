@@ -2,7 +2,7 @@
 
 namespace UnnPortal;
 
-require_once 'login.php';
+require_once 'curl_handler.php';
 
 class UnnStudent
 {

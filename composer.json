@@ -16,7 +16,7 @@
     "require-dev": {},
     "autoload": {
         "psr-4": {
-            "UnnPortal\\": "api"
+            "UnnPortal\\": "src"
         }
     }
 }

@@ -14,6 +14,7 @@ function curlLogin($username, $password)
 	$f = fopen("log.txt", "w");
 
 	curl_setopt($ch, CURLOPT_URL, $siteUrl);
+    curl_setopt($ch, CURLOPT_COOKIESESSION, true);
 	curl_setopt($ch, CURLOPT_COOKIEJAR, $cookieFile);
 	curl_setopt($ch, CURLOPT_COOKIEFILE, $cookieFile);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
