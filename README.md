@@ -1,5 +1,5 @@
 # unnportal-php
-Update: the API is live at https://unn-api.herokuapp.com/v1/. See https://github.com/shalvah/unn-api for details.
+UPDATE: the API is live on the web now. See https://github.com/shalvah/unn-api for details.
 
 Authenticate and get details about your application's users through their unnportal details.
 
