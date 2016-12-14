@@ -1,17 +1,11 @@
 # unnportal-php
+Update: the API is live at https://unn-api.herokuapp.com/v1/. See https://github.com/shalvah/unn-api for details.
+
 Authenticate and get details about your application's users through their unnportal details.
 
 This is a PHP package that provides an unofficial API for the University of Nigeria student portal located at http://unnportal.unn.edu.ng
 
-# Usage:
-Add to your `composer.json`:
-```
-require": {
-        "shalvah/unnportal-api": "^1.0.0"
-    }
-```
-
-Sample:
+# Sample:
 ```
 use \UnnPortal\UnnStudent;
 
@@ -27,7 +21,7 @@ $student->logout();
 If the login fails, an instance of `UnnPortal\UnnPortalException` will be thrown.
 
 # Use Cases
-*. You're building an application which you want to be available only to UNN students.
+* You're building an application which you want to be available only to UNN students.
 
 ```
 try{
@@ -38,7 +32,7 @@ try{
 ```
 You could even add email verification to it.
 
-*. You're building an application which you want to be available only to **certain** UNN students eg males in Political Science:
+* You're building an application which you want to be available only to **certain** UNN students eg males in Political Science:
 
 ```
 if($student->sex() == "Male" && $student->department() == "POLITICAL SCIENCE") {
@@ -61,6 +55,14 @@ $student->gradYear(); //returns a numeric string such as "2019-2020"
 $student->department(); //returns a string in CAPS
 $student->level); //returns a string such as "200 LEVEL" in CAPS
 ```
+# Installation:
+Add to your `composer.json`:
+```
+"require": {
+        "shalvah/unnportal-api": "^1.0.0"
+    }
+```
+Run `composer install`.
 
 # Disclaimer
 I, Shalvah Adebayo, am in no way liable for how this work is used. 
