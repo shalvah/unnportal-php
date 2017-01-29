@@ -1,5 +1,8 @@
-# unnportal-php
-PHP library for [the UNN API](https://github.com/shalvah/unn-api).
+<p align="center"><img  alt="UNN logo" src ="http://www.unn.edu.ng/wp-content/uploads/2015/03/UNN_Logo.jpg" />
+<br><h1 align="center">unnportal-php</h1></p>
+ 
+ <p align="center">PHP library for <a href="https://github.com/shalvah/unn-api">the UNN API</a>
+ <br><br><a href="https://packagist.org/packages/shalvah/unnportal-api"><img alt="Latest Stable Version" src="https://poser.pugx.org/shalvah/unnportal-api/v/stable"></a> <a href="https://packagist.org/packages/shalvah/unnportal-api"><img alt="Total Downloads" src="https://poser.pugx.org/shalvah/unnportal-api/downloads"></a> <a href="https://packagist.org/packages/shalvah/unnportal-api"><img alt="License" src="https://poser.pugx.org/shalvah/unnportal-api/license"></a></p>
 
 Authenticate and get details about your application's users through their unnportal details. With this, you can restrict your app's audience to the right people.
 
