@@ -1,46 +1,30 @@
 # unnportal-php
-UPDATE: the API is live on the web now. See https://github.com/shalvah/unn-api for details.
+PHP library for [the UNN API](https://github.com/shalvah/unn-api).
 
-Authenticate and get details about your application's users through their unnportal details.
+Authenticate and get details about your application's users through their unnportal details. With this, you can restrict your app's audience to the right people.
 
-This is a PHP package that provides an unofficial API for the University of Nigeria student portal located at http://unnportal.unn.edu.ng
-
-# Sample:
+## Sample:
 ```
 use \UnnPortal\UnnStudent;
+use \UnnPortal\UnnPortalException;
 
 $username = "201x/1xxxxx";
 $password = "xxxxxx";
 
 $student = new UnnStudent($username, $password);
-$student->login();
-echo $student->surname()." ".$student->firstName()." is in ".$student->level);
-$student->logout();
-```
+try {
+  $student->login();
+  echo $student->surname()." ".$student->firstName()." is in ".$student->level);
+  if($student->sex() == "Male" && $student->department() == "POLITICAL SCIENCE") {
+    echo "You've passed the test!";
+  }
+  $student->logout();
+ } catch (UnnPortalException $e) {
+   echo $e->getMessage();
+ }
+ ```
 
-If the login fails, an instance of `UnnPortal\UnnPortalException` will be thrown.
-
-# Use Cases
-* You're building an application which you want to be available only to UNN students.
-
-```
-try{
-    $student->login();
-} catch (UnnPortalException $e) {
-   echo "Please enter correct UNN login details.";
-}
-```
-You could even add email verification to it.
-
-* You're building an application which you want to be available only to **certain** UNN students eg males in Political Science:
-
-```
-if($student->sex() == "Male" && $student->department() == "POLITICAL SCIENCE") {
-    //allow them through
-}
-```
-
-# Available Details
+## Available Details
 ```
 $student->surname(); //returns a string in CAPS
 $student->firstName(); //returns a string in CAPS
@@ -53,9 +37,9 @@ $student->jambNo(); //returns an alphanumeric string in CAPS
 $student->entryYear(); //returns a numeric string such as "2013-2014"
 $student->gradYear(); //returns a numeric string such as "2019-2020"
 $student->department(); //returns a string in CAPS
-$student->level); //returns a string such as "200 LEVEL" in CAPS
+$student->level(); //returns a string such as "200 LEVEL" in CAPS
 ```
-# Installation:
+## Installation:
 Add to your `composer.json`:
 ```
 "require": {
@@ -64,7 +48,20 @@ Add to your `composer.json`:
 ```
 Run `composer install`.
 
-# Disclaimer
-I, Shalvah Adebayo, am in no way liable for how this work is used. 
-You are required to abide by the terms of the included MIT license.
-In addition, you are to properly educate your users on which of their data you can access and what you will use it for. Please STORE NO LOGIN DETAILS.
+## Bugs or security vulnerabilities
+If you discover any bugs or security vulnerabilities, please contact me at shalvah.adebayo@gmail.com or open an issue.
+
+## Contribution
+You wanna help improve this package? Thanks! All you need to do:
+- Fork the project
+- Clone your fork to your local machine
+- Make your changes
+- Commit your changes and push
+- Open a pull request
+I'll attend to all PRs as soon as I can!
+
+## If you like this...
+Please star and share! Thanks!
+
+## Disclaimer (Yup, just to be safe)
+I am in no way liable for how this work is used. 
