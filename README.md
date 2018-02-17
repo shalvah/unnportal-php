@@ -6,56 +6,35 @@
 
 Authenticate and get details about your application's users through their unnportal details. With this, you can restrict your app's audience to the right people.
 
-## Sample:
+## Usage:
 ```
-use \UnnPortal\UnnStudent;
-use \UnnPortal\UnnPortalException;
+<?php
 
-$username = "201x/1xxxxx";
+use \UnnPortal\Portal;
+use \UnnPortal\PortalException;
+
+require 'vendor/autoload.php';
+
+$username = "2013/1xxxxx";
 $password = "xxxxxx";
 
-$student = new UnnStudent($username, $password);
 try {
-  $student->login();
-  echo $student->surname()." ".$student->firstName()." is in ".$student->level);
-  if($student->sex() == "Male" && $student->department() == "POLITICAL SCIENCE") {
-    echo "You've passed the test!";
-  }
-  $student->logout();
- } catch (UnnPortalException $e) {
-   echo $e->getMessage();
- }
+    $student = Portal::authenticate($username, $password);
+    echo "Hi there, $student->first_name from the department of $student->department!";
+} catch (PortalException $e) {
+    echo $e->getMessage();
+}
  ```
 
-## Available Details
-```
-$student->surname(); //returns a string in CAPS
-$student->firstName(); //returns a string in CAPS
-$student->middleName(); //returns a string in CAPS
-$student->sex(); //returns either "Male" or "Female" (note the capitals)
-$student->phone() OR mobile(); //returns a string of digits
-$student->email(); //returns a string in CAPS
-$student->matricNo() OR regNo(); //returns a numeric string
-$student->jambNo(); //returns an alphanumeric string in CAPS
-$student->entryYear(); //returns a numeric string such as "2013-2014"
-$student->gradYear(); //returns a numeric string such as "2019-2020"
-$student->department(); //returns a string in CAPS
-$student->level(); //returns a string such as "200 LEVEL" in CAPS
-```
-## Installation:
-Add to your `composer.json`:
-```
-"require": {
-        "shalvah/unnportal-api": "^1.0.0"
-    }
-```
-Run `composer install`.
+The `authenticate` method returns an instance of `\UnnPortal\Student` if successful, or throws a `PortalException` if not.
 
-## Bugs or security vulnerabilities
-If you discover any bugs or security vulnerabilities, please contact me at shalvah.adebayo@gmail.com or open an issue.
+For a list of available student details, see the documentation at https://github.com/shalvah/unn-api
+
+## Installation:
+Run `composer install shalvah/unnportal-api`.
 
 ## Contribution
-You wanna help improve this package? Thanks! All you need to do:
+Wanna help improve this package? Thanks! All you need to do:
 - Fork the project
 - Clone your fork to your local machine
 - Make your changes
