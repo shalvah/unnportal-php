@@ -44,6 +44,3 @@ I'll attend to all PRs as soon as I can!
 
 ## If you like this...
 Please star and share! Thanks!
-
-## Disclaimer (Yup, just to be safe)
-I am in no way liable for how this work is used. 
